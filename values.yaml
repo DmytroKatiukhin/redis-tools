@@ -1,6 +1,6 @@
 image:
-  repository: your-username/lightweight-redis-tools
-  tag: "1.0"
+  repository: koklushkin/redis-tools
+  tag: latest
   pullPolicy: IfNotPresent
 
 service:

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-tools
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis-tools
+  template:
+    metadata:
+      labels:
+        app: redis-tools
+    spec:
+      containers:
+        - name: redis-tools
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: 6379
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
