@@ -1,0 +1,5 @@
+apiVersion: v2
+name: redis-tools-chart
+description: A Helm chart to deploy a lightweight Redis tools container
+version: 1.0.0
+appVersion: 1.0.0
