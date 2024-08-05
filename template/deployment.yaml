@@ -1,21 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: redis-tools
+  name: redis-cli
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: redis-tools
+      app: redis-cli
   template:
     metadata:
       labels:
-        app: redis-tools
+        app: redis-cli
     spec:
       containers:
-        - name: redis-tools
-          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+        - name: redis-cli
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: "{{ .Values.image.pullPolicy }}"
+          command: ["/bin/sh", "-c", "while true; do sleep 1000; done"]
           ports:
             - containerPort: 6379
           resources:
